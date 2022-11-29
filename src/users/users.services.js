@@ -42,7 +42,7 @@ const patchUser = (req, res) => {
     usersControllers.updateUser(id, {first_name, last_name,email, password,birthday})
         .then((data)=>{
             if(data){
-                res.status(200).json(data)
+                res.status(200).json({message: 'User has been modified'})
             }else{
                 res.status(404).json({message: 'Invalid ID'})
             }
@@ -57,7 +57,7 @@ const deleteUser = (req, res) => {
     usersControllers.deleteUser(id)
     .then((data)=>{
         if(data){
-            res.status(204).json(data)
+            res.status(204).json({message: 'User has been deleted'})
         }else{
             res.status(404).json({message: 'Invalid ID'})
         }
